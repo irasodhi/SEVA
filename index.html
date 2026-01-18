@@ -1,0 +1,546 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daan – Blockchain Donation Platform</title>
+
+    <style>
+
+        /* ---------------------- GLOBAL STYLES ---------------------- */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        a { text-decoration: none; color: inherit; }
+
+        /* ---------------------- NAVBAR ---------------------- */
+
+        nav {
+            width: 100%;
+            padding: 15px 50px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0px 4px 12px rgba(0,0,0,0.08);
+        }
+
+        nav .logo {
+            font-size: 26px;
+            font-weight: 700;
+            color: #5a2df4;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav ul li {
+            font-weight: 500;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        nav ul li:hover {
+            color: #5a2df4;
+        }
+
+        /* ---------------------- HERO SECTION ---------------------- */
+
+        .hero {
+            margin-top: 90px;
+            width: 100%;
+            padding: 60px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1.2;
+            color: #222;
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            margin: 20px 0;
+            color: #555;
+        }
+
+        .hero-text button {
+            padding: 14px 28px;
+            font-size: 16px;
+            border: none;
+            border-radius: 30px;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .hero-text button:hover {
+            transform: scale(1.05);
+        }
+
+        .hero img {
+            width: 500px;
+            border-radius: 20px;
+            box-shadow: 0px 8px 30px rgba(0,0,0,0.2);
+        }
+
+        /* ---------------------- DONATION SECTION ---------------------- */
+
+        .donation-section {
+            width: 100%;
+            padding: 70px 50px;
+            background: #ffffff;
+            margin-top: 40px;
+        }
+
+        .donation-section h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #222;
+        }
+
+        .donation-container {
+            max-width: 450px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 20px;
+            background: rgba(255,255,255,0.5);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .donation-container input {
+            padding: 12px;
+            border: none;
+            background: #f0f0f0;
+            width: 100px;
+            border-radius: 8px;
+        }
+
+        .donation-container button {
+            padding: 12px 24px;
+            border-radius: 30px;
+            border: none;
+            background: #4caf50;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .donation-container button:hover {
+            background: #3e8e41;
+        }
+
+        #status {
+            margin-top: 12px;
+            color: #444;
+            font-weight: bold;
+        }
+
+        /* ---------------------- FOOTER ---------------------- */
+
+        footer {
+            margin-top: 50px;
+            padding: 25px;
+            background: #222;
+            color: white;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        /* RESPONSIVE */
+
+        @media(max-width: 900px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero img {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+ 
+    <nav>
+        <div class="logo">DAAN</div>
+        <ul>
+            <li>Home</li>
+            <li>Why Donate</li>
+            <li>About Us</li>
+            <li>Contact</li>
+        </ul>
+    </nav>
+ 
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Make a Difference.  
+                <br>Donate Using Blockchain.</h1>
+            <p>Your small contribution can create a big impact.  
+               With blockchain, your donations are transparent, instant, and secure.</p>
+            <a href="#donateNow"><button>Donate Now</button></a>
+        </div>
+ 
+        <img src="https://images.unsplash.com/photo-1526256262350-7da7584cf5eb?auto=format&fit=crop&w=900&q=60">
+    </section>
+
+ 
+    <section class="donation-section" id="donateNow">
+        <h2>Support a Good Cause</h2>
+
+        <div class="donation-container">
+
+            <button id="connectButton" style="background:#ff9800;color:white;margin-bottom:15px;">
+                Connect Wallet
+            </button>
+
+            <div style="margin-bottom:10px;">
+                <input type="text" id="ethAmount" placeholder="0.01"> ETH 
+            </div>
+
+            <button id="donateButton">Donate</button>
+
+            <p id="status">Please connect your wallet.</p>
+        </div>
+    </section>
+
+   
+    <footer>
+        © 2025 DAAN – Blockchain Donation Platform | All rights reserved.
+    </footer>
+
+
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.umd.min.js"></script>
+
+    <script>
+        const contractAddress = "0xd1294522495f217214531F6dD69Bdd1983B5d58a";
+
+        const abi = [
+            { "inputs": [], "name": "donate", "outputs": [], "stateMutability": "payable", "type": "function" },
+            { "inputs": [], "stateMutability": "nonpayable", "type": "constructor" },
+            { "inputs": [], "name": "withdraw", "outputs": [], "stateMutability": "nonpayable", "type": "function" },
+            {
+                "inputs": [], "name": "owner", "outputs": [
+                    { "internalType": "address", "name": "", "type": "address" }
+                ], "stateMutability": "view", "type": "function"
+            },
+            {
+                "inputs": [], "name": "totalDonations", "outputs": [
+                    { "internalType": "uint256", "name": "", "type": "uint256" }
+                ], "stateMutability": "view", "type": "function"
+            }
+        ];
+
+        let provider, signer, contract;
+
+        document.getElementById("connectButton").onclick = connectWallet;
+        document.getElementById("donateButton").onclick = donate;
+
+        async function connectWallet() {
+            if (!window.ethereum) {
+                alert("Install MetaMask!");
+                return;
+            }
+
+            provider = new ethers.providers.Web3Provider(window.ethereum);
+            await provider.send("eth_requestAccounts", []);
+            signer = provider.getSigner();
+            contract = new ethers.Contract(contractAddress, abi, signer);
+
+            document.getElementById("status").innerText = "Wallet connected!";
+        }
+
+        async function donate() {
+            if (!signer) {
+                document.getElementById("status").innerText = "Connect your wallet first!";
+                return;
+            }
+
+            const amount = document.getElementById("ethAmount").value;
+            if (!amount || amount <= 0) {
+                document.getElementById("status").innerText = "Enter a valid amount.";
+                return;
+            }
+
+            try {
+                document.getElementById("status").innerText = "Processing donation...";
+
+                const tx = await contract.donate({
+                    value: ethers.utils.parseEther(amount)
+                });
+                await tx.wait();
+
+                document.getElementById("status").innerText = "🎉 Donation successful!";
+            } catch (err) {
+                document.getElementById("status").innerText = "Transaction failed.";
+            }
+        }
+    </script>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SEVA — Blockchain Donation Platform</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Ethers.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.umd.min.js"></script>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="logo">SEVA</div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#categories">Causes</a></li>
+        <li><a href="#how">How it works</a></li>
+        <li><a href="#partners">Partners</a></li>
+        <li><a href="#volunteer">Volunteer</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <div id="userAddress" class="addr">Not connected</div>
+        <button id="connectBtn" class="btn orange">Connect Wallet</button>
+      </div>
+    </div>
+  </nav>
+
+ <!-- HERO -->
+<header id="home" class="hero fresh-hero">
+  <div class="fresh-hero-left">
+    <h1>Your Donation Makes a Difference</h1>
+    <p class="hero-sub">
+      Support orphanages, elderly homes, women education programs, medical treatments and more.
+      Every donation is secure and verified.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="#categories" class="btn-primary">Explore Causes</a>
+      <a href="#donateNow" class="btn-secondary">Donate Now</a>
+    </div>
+
+    
+  </div>
+
+  <div class="fresh-hero-right">
+    <img src="unnamed.jpg" alt="Donation Illustration">
+  </div>
+</header>
+
+
+
+  <!-- CATEGORIES -->
+  <section id="categories" class="section categories">
+    <div class="section-head">
+      <h2>Choose a Cause</h2>
+      <p>Pick a category below — each card links to the donation box pre-selected for that cause.</p>
+    </div>
+
+    <div class="filters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="education">Education</button>
+      <button class="filter-btn" data-filter="health">Health</button>
+      <button class="filter-btn" data-filter="shelter">Shelter</button>
+    </div>
+
+    <div class="cards" id="categoryCards">
+      <!-- Orphanage -->
+      <article class="card" data-category="shelter" data-id="orphanage">
+        <img src="https://th.bing.com/th/id/OIP.e09ECJgS0W2qImi76UC9UwHaDb?w=347&h=162&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="Orphanage">
+        <div class="card-body">
+          <h3>Orphanage Support</h3>
+          <p>Help provide food, shelter and education to orphan children.</p>
+          <div class="card-meta">
+            <div class="meta">Raised: <span class="cat-total" data-cat="orphanage">1786268 ETH</span></div>
+            <div><button class="btn small" data-choose="orphanage">Donate</button></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Old Age Home -->
+      <article class="card" data-category="shelter" data-id="oldage">
+        <img src="https://th.bing.com/th/id/OIP.1FzMuilH1h7ZuaQcbIFFugHaD4?w=322&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="Old Age">
+        <div class="card-body">
+          <h3>Old Age Homes</h3>
+          <p>Support elderly citizens with medical care and daily needs.</p>
+          <div class="card-meta">
+            <div class="meta">Raised: <span class="cat-total" data-cat="oldage">89456 ETH</span></div>
+            <div><button class="btn small" data-choose="oldage">Donate</button></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Women Education -->
+      <article class="card" data-category="education" data-id="women">
+        <img src="https://d13loartjoc1yn.cloudfront.net/article/1684490890_Women%20Education%20in%20India.jpg" alt="Women Education">
+        <div class="card-body">
+          <h3>Women Education</h3>
+          <p>Empower women by funding their studies and skill development.</p>
+          <div class="card-meta">
+            <div class="meta">Raised: <span class="cat-total" data-cat="women">349213 ETH</span></div>
+            <div><button class="btn small" data-choose="women">Donate</button></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Cancer Treatment -->
+      <article class="card" data-category="health" data-id="cancer">
+        <img src="images.jpg">
+        <div class="card-body">
+          <h3>Cancer Treatment</h3>
+          <p>Help cancer patients receive proper treatment and medication.</p>
+          <div class="card-meta">
+            <div class="meta">Raised: <span class="cat-total" data-cat="cancer">509374 ETH</span></div>
+            <div><button class="btn small" data-choose="cancer">Donate</button></div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how" class="section how">
+    <div class="container">
+      <h2>How it works</h2>
+      <div class="how-grid">
+        <div class="how-card">
+          <div class="how-icon">🔒</div>
+          <h4>Secure</h4>
+          <p>Donations are transferred over the blockchain to an immutable contract.</p>
+        </div>
+        <div class="how-card">
+          <div class="how-icon">📣</div>
+          <h4>Transparent</h4>
+          <p>Every on-chain donation is visible. Our UI shows total on-chain funds and tracked category totals.</p>
+        </div>
+        <div class="how-card">
+          <div class="how-icon">🤝</div>
+          <h4>Immediate</h4>
+          <p>Funds are transferred instantly without middlemen.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DONATION BOX -->
+  <section id="donateNow" class="section donate">
+    <div class="donate-wrap">
+      <div class="donate-left">
+        <h2>Make a Donation</h2>
+        <p id="selectedCauseDesc">Select a cause from above, or choose one here.</p>
+
+        <label class="label">Select Cause</label>
+        <select id="causeSelect" class="select">
+          <option value="orphanage">Orphanage Support</option>
+          <option value="oldage">Old Age Homes</option>
+          <option value="women">Women Education</option>
+          <option value="cancer">Cancer Treatment</option>
+        </select>
+
+        <label class="label">Amount (ETH)</label>
+        <input id="ethAmount" class="input" placeholder="0.01" />
+
+        <div class="donate-actions">
+          <button id="donateBtn" class="btn green">Donate</button>
+          <button id="viewHistoryBtn" class="btn ghost">View History</button>
+        </div>
+
+        <div id="donateStatus" class="status">Connect wallet to donate.</div>
+      </div>
+
+      <div class="donate-right">
+        <div class="panel">
+          <h4>On-chain total</h4>
+          <div class="big" id="onChainTotalPanel">-- ETH</div>
+
+          <h4>Tracked totals (by category)</h4>
+          <ul class="category-list">
+            <li>Orphanage: <strong id="sum-orphanage">0 ETH</strong></li>
+            <li>Old Age: <strong id="sum-oldage">0 ETH</strong></li>
+            <li>Women Education: <strong id="sum-women">0 ETH</strong></li>
+            <li>Cancer Treatment: <strong id="sum-cancer">0 ETH</strong></li>
+          </ul>
+
+          <h4>Donation History</h4>
+          <div id="historyList" class="history">No donations yet.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+
+  <!-- VOLUNTEER -->
+  <section id="volunteer" class="section volunteer">
+    <div class="container">
+      <h2>Volunteer with Us</h2>
+      <p>Share your time and skills. Fill out the form below and our team will reach out.</p>
+
+      <form id="volForm" class="vol-form">
+        <input id="volName" placeholder="Full name" required />
+        <input id="volEmail" type="email" placeholder="Email" required />
+        <textarea id="volMsg" placeholder="How you'd like to help"></textarea>
+        <div class="vol-actions">
+          <button type="submit" class="btn blue">Sign Up</button>
+        </div>
+        <div id="volStatus" class="status"></div>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div>© <span id="year"></span> SEVA — Blockchain Donation Platform</div>
+      <div class="foot-links">Built with ❤️ · Transparency matters</div>
+    </div>
+  </footer>
+
+  <!-- CONFETTI CANVAS -->
+  <canvas id="confettiCanvas" class="confetti"></canvas>
+
+  <!-- SCRIPTS -->
+  <script src="script.js"></script>
+</body>
+</html>
